@@ -1,0 +1,28 @@
+@import '../theme';
+
+*,*::after,*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: $clr-background;
+    color: $clr-text;
+    overflow: hidden;
+
+    &::before {
+        text-align: center;
+        content: 'Pokémon';
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 16em;
+        font-weight: 700;
+        color: transparent;
+        -webkit-text-stroke: 1px #555;
+        z-index: -99;
+    }
+}

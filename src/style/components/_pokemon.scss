@@ -1,0 +1,248 @@
+@use '../theme' as *;
+@use '../util' as *;
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.pokemon {
+    overflow: auto;
+    max-height: 80vh;
+    width: 90vw;
+    margin: 0 auto;
+    border: {
+        left: 2px solid $clr-border;
+        right: 2px solid $clr-border;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    img {
+        transform: scale(100%);
+    }
+    
+    &::-webkit-scrollbar {
+        background-color: $clr-scroll-bar-background;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
+    }
+       
+    &::-webkit-scrollbar-thumb {
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
+        background-color: $clr-scroll-bar;
+        width: 20px;
+        border: 50%;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .pokedex {
+        background: $clr-pokedex;
+        width: 16vw;
+        height: 22vw;
+        border-radius: 10%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // gap: 1.6rem;
+
+        .pokemon-img-container {
+            width: 70%;
+            background: $clr-pokedex-screen;
+            border-radius: 10%;
+            margin: {
+                top: 1rem;
+            }
+        }
+
+        .pokemon-name {
+            margin: {
+                top: 1.6rem;
+                bottom: 3rem;
+            }
+        }
+
+        .controlls-container {
+            display: flex;
+            width: 100%;
+            position: relative;
+            padding: {
+                left: 2rem;
+            }
+
+            .more-info {
+                outline: none;
+                border: none;
+                background: $clr-pokedex-moreInfo;
+                font-size: 1.6rem;
+                border-radius: 50%;
+                width: 2.2rem;
+                height: 2.2rem;
+                color: $clr-info-text;
+                text-align: center;
+                position: relative;
+                right: -3rem;
+                margin: {
+                    bottom: 1rem;
+                }
+                transition: .4s;
+
+                &:hover {
+                    background: $clr-pokedex-moreInfo-hover;
+                }
+
+                svg {
+                    height: 100%;
+                }
+            }
+    
+            .controlls {
+                width: 4rem;
+                height: 4rem;
+                background: none;
+                position: relative;
+                top: -1rem;
+                margin: {
+                    left: 1rem;
+                }
+
+                .plusVert {
+                    width: 20%;
+                    height: 100%;
+                    background: $clr-pokedex-plus;
+                }
+
+                .plusHorz {
+                    width: 20%;
+                    height: 100%;
+                    background: $clr-pokedex-plus;
+                    transform: rotate(90deg);
+                    position: relative;
+                    top: -4rem;
+                }
+            }
+        }
+    }
+
+    .buttons-container {
+        display: flex;
+        width: 70%;
+        height: 4vh;
+        justify-content: space-around;
+        margin: {
+            bottom: 3rem;
+        }
+
+        .next-button-container {
+            display: flex;
+            align-items: center;
+
+            .btn {
+                outline: none;
+                border: none;
+                background: $clr-button-background;
+                height: 100%;
+                width: 5.4rem;
+                border-radius: $radius;
+                padding: {
+                    right: .8rem;
+                }
+            }
+
+            svg {
+                background: $clr-button-background;
+                height: 100%;
+                width: 30%;
+                border-radius: 50%;
+                position: relative;
+                left: -1.1rem;
+            }
+        }
+
+        .prev-button-container {
+            display: flex;
+            align-items: center;
+
+            .btn {
+                outline: none;
+                border: none;
+                background: $clr-button-background;
+                height: 100%;
+                width: 5.4rem;
+                border-radius: $radius;
+                padding: {
+                    left: .8rem;
+                }
+            }
+
+            svg {
+                background: $clr-button-background;
+                height: 100%;
+                width: 30%;
+                border-radius: 50%;
+                position: relative;
+                left: -6rem;
+            }
+        }
+    }
+}
+
+.loading-container {
+    width: 90vw;
+    margin: 0 auto;
+    height: 80vh;
+    padding-top: 2rem;
+    border: {
+        left: 2px solid $clr-border;
+        right: 2px solid $clr-border;
+    }
+
+    .loading {
+        margin-top: 2rem;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: linear-gradient(45deg, transparent, transparent 40%, $clr-loading-wheel);
+        animation: loading 2s linear infinite;  
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            right: 6px;
+            bottom: 6px;
+            background: $clr-loading-wheel-background;
+            border-radius: 50%;
+            z-index: 1000;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            background:  linear-gradient(45deg, transparent, transparent 40%, $clr-loading-wheel);
+            border-radius: 50%;
+            z-index: 1;
+            filter: blur(15px);
+        }
+    }
+}

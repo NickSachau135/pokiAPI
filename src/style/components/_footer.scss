@@ -1,0 +1,31 @@
+@use '../theme' as *;
+
+.footer-container {
+    height: 10vh;
+    max-height: 10vh;
+    width: 100%;
+    border:  {
+        top: 2px solid $clr-border;
+    }
+
+    .footer {
+        display: flex;
+        color: transparent;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+        width: 90vw;
+        margin: 0 auto;
+        border: {
+            left: 2px solid $clr-border;
+            right: 2px solid $clr-border;
+        }
+        padding: {
+            left: 10vh;
+            right: 10vh;
+        }
+        &.active {
+            color: $clr-text;
+        }
+    }
+}

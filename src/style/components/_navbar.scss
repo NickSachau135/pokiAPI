@@ -1,0 +1,54 @@
+@use '../theme' as *;
+
+.navbar-container {
+    border: {
+        bottom: 2px solid $clr-border;
+    }
+
+
+    .home-icon {
+        color: white;
+
+        svg {
+            position: absolute;
+            top: 3vh;
+            left: 1.8vw;
+            transform: scale(3);
+        }
+    }
+    
+
+    .navbar {
+        display: flex;
+        height: 10vh;
+        width: 90vw;
+        margin: 0 auto;
+        border:  {
+            left: 2px solid $clr-border;
+            right: 2px solid $clr-border;
+        }
+
+        ul {
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.6rem;
+            justify-content: space-around;
+            align-items: center;
+            display: flex;
+            width: 80%;
+            list-style-type: none;
+
+            .left {
+                display: flex;
+                justify-content: space-around;
+                width: 80%;
+            }
+
+            .right {
+                display: flex;
+                justify-content: space-around;
+                width: 80%;
+            }
+        }
+    }
+}

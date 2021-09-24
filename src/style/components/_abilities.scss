@@ -1,0 +1,50 @@
+@use '../theme' as *;
+
+.pokemon {
+    height: 100vh;
+    overflow: auto;
+    max-height: 80vh;
+    width: 90vw;
+    margin: 0 auto;
+    border: {
+        left: 2px solid $clr-border;
+        right: 2px solid $clr-border;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    img {
+        transform: scale(300%);
+    }
+
+    .stats {
+        width: 40vw;
+
+        .stat {
+            display: flex;
+            text-align: right;
+            margin: {
+                bottom: 1.5rem;
+            }
+            gap: 1rem;
+
+            h2 {
+                width: 120%;
+            }
+
+            .bar {
+                width: 100%;
+
+                .progress {
+                    height: 20px;
+                    border-radius: 10px;
+                    height: 80%;
+                }
+            }
+        }
+    }
+}
