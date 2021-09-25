@@ -1,11 +1,11 @@
 // import React from 'react'
-import React, { useEffect } from 'react'
+import React, { useEffect, useReducer } from 'react'
 
 import { useGlobalContext } from '../util/context';
 import { useParams } from 'react-router-dom';
 
 const Abilities = () => {
-    const { singlePokemon, fetchNewLink, loading } = useGlobalContext();
+    const { singlePokemon, fetchNewLink, loading, setLoading } = useGlobalContext();
     const { id } = useParams()
     useEffect(() => {
         fetchNewLink(`https://pokeapi.co/api/v2/pokemon/${id}/`)
@@ -13,9 +13,9 @@ const Abilities = () => {
 
     const getProgressColor = (type) => {
         console.log(type)
-        switch(type) {
+        switch (type) {
             case 'grass': {
-                return '#78C850' 
+                return '#78C850'
             }
             case 'fire': {
                 return '#F08030'
@@ -33,7 +33,7 @@ const Abilities = () => {
                 return '#E0C068'
             }
             case 'fairy': {
-                return '#EE99AC' 
+                return '#EE99AC'
             }
             case 'steel': {
                 return '#B8B8D0'
@@ -71,7 +71,7 @@ const Abilities = () => {
         }
     }
 
-    if(loading) {
+    if (loading) {
         return (
             <div className="loading-container">
                 <div className="loading">
@@ -83,28 +83,28 @@ const Abilities = () => {
 
     const { id: pokeId, name, types, stats, moves } = singlePokemon
 
-    console.log(moves)
+    return (
+        <div className="pokemon">
+            <div className="name">
+                <h2>{name}</h2>
+                <p className="type">Type: {types.map((type) => `${type.type.name} `)}</p>
+                <p className="id">ID: {pokeId}</p>
+            </div>
 
-    return <div className="pokemon">
-        <div className="name">
-            <h2>{name}</h2>
-            <p className="type">Type: {types.map((type) => `${type.type.name} `)}</p>
-            <p className="id">ID: {pokeId}</p>
+            <img src={`./sprites/sprites/pokemon/${singlePokemon.id}.png`} alt="" />
+            <div className="stats">
+                {stats.map((stat, index) => {
+                    return (
+                        <div className="stat" key={index}>
+                            <h2>{stat.stat.name.toUpperCase()}: {stat.base_stat}</h2>
+                            <div className="bar"><div style={{ width: `${stat.base_stat}%`, backgroundColor: getProgressColor(types[0].type.name) }} className="progress"></div></div>
+                        </div>
+                    )
+                })}
+
+            </div>
         </div>
-        
-        <img src={`./sprites/sprites/pokemon/${singlePokemon.id}.png`} alt="" />
-        <div className="stats">
-            {stats.map((stat, index) => {
-                return (
-                    <div className="stat" key={index}>
-                        <h2>{stat.stat.name.toUpperCase()}: {stat.base_stat}</h2>
-                        <div className="bar"><div style={{width: `${stat.base_stat}%`, backgroundColor: getProgressColor(types[0].type.name)}} className="progress"></div></div>
-                    </div>
-                )
-            })}
-            
-        </div>
-    </div>
+    )
 
 }
 

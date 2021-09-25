@@ -8,7 +8,7 @@ import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 import { BsInfo } from 'react-icons/bs'
 
 const Pokemon = () => {
-    const { stopLoading, loading, pokemon, page, nextPage, prevPage } = useGlobalContext();
+    const { stopLoading, loading, pokemon, page, nextPage, prevPage, setLoading } = useGlobalContext();
 
     if (loading) {
         return <div className="loading-container">
@@ -35,7 +35,7 @@ const Pokemon = () => {
                                 <div className="plusVert"></div>
                                 <div className="plusHorz"></div>
                             </div>
-                            <Link to={`/${poke.name}`} className="more-info"><BsInfo /></Link>
+                            <Link to={`/${poke.name}`} onClick={setLoading} className="more-info"><BsInfo /></Link>
                         </div>
                     </div>
 

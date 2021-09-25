@@ -19,7 +19,6 @@ export const AppProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, defaultState);
 
     const fetchPokemon = async(url) => {
-        dispatch({ type: 'SET_LOADING' });
         try {
             const response = await fetch(url);
             const data = await response.json();
@@ -65,8 +64,11 @@ export const AppProvider = ({ children }) => {
         }
     }
 
+    const setLoading = () => {
+        dispatch({type: 'SET_LOADING'})
+    }
+
     const fetchNewLink = async (url) => {
-        dispatch({ type: 'SET_LOADING' });  
         try{
             const response = await fetch(url);
             const data = await response.json();
@@ -91,7 +93,7 @@ export const AppProvider = ({ children }) => {
         fetchPokemon(`https://pokeapi.co/api/v2/pokemon?offset=${state.page * 20}&limit=20`);
     }, [state.page]);
 
-    return <AppContext.Provider value={{ ...state, fetchNewLink, stopLoading, fetchAllPokemon, fetchAbilities, nextPage, prevPage, getPokemonSprite }}>
+    return <AppContext.Provider value={{ ...state, setLoading, fetchNewLink, stopLoading, fetchAllPokemon, fetchAbilities, nextPage, prevPage, getPokemonSprite }}>
         {children}
     </AppContext.Provider>
 }
