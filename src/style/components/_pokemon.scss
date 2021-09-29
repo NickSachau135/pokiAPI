@@ -74,28 +74,23 @@
 
         .controlls-container {
             display: flex;
+            justify-content: space-around;
+            align-items: center;
             width: 100%;
-            position: relative;
-            padding: {
-                left: 15%;
-            }
+            height: 60%;
 
             .more-info {
                 outline: none;
                 border: none;
                 background: $clr-pokedex-moreInfo;
-                font-size: 1.6rem;
+                font-size: 2rem;
                 border-radius: 50%;
-                width: 2.2rem;
-                height: 2.2rem;
+                width: 3vw;
+                height: 3vw;
                 color: $clr-info-text;
                 text-align: center;
-                position: relative;
-                right: -3rem;
-                margin: {
-                    bottom: 1rem;
-                }
                 transition: .4s;
+                margin-right: 2vw;
 
                 &:hover {
                     background: $clr-pokedex-moreInfo-hover;
@@ -106,30 +101,9 @@
                 }
             }
     
-            .controlls {
-                width: 4rem;
-                height: 4rem;
-                background: none;
-                position: relative;
-                top: -1rem;
-                margin: {
-                    left: 1rem;
-                }
-
-                .plusVert {
-                    width: 20%;
-                    height: 100%;
-                    background: $clr-pokedex-plus;
-                }
-
-                .plusHorz {
-                    width: 20%;
-                    height: 100%;
-                    background: $clr-pokedex-plus;
-                    transform: rotate(90deg);
-                    position: relative;
-                    top: -4rem;
-                }
+            .plus {
+                font-size: 6rem;
+                color: $clr-pokedex-plus;
             }
         }
     }

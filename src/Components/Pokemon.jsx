@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 // import { GoArrowUp, GoArrowDown } from 'react-icons/go';
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 import { BsInfo } from 'react-icons/bs'
+import { FaPlus } from 'react-icons/fa'
 
 const Pokemon = () => {
     const { stopLoading, loading, pokemon, page, nextPage, prevPage, setLoading } = useGlobalContext();
@@ -31,10 +32,7 @@ const Pokemon = () => {
                         </div>
                         <h2 className='pokemon-name'>{poke.name}</h2>
                         <div className="controlls-container">
-                            <div className="controlls">
-                                <div className="plusVert"></div>
-                                <div className="plusHorz"></div>
-                            </div>
+                            <FaPlus className="plus"/>
                             <Link to={`/${poke.name}`} onClick={setLoading} className="more-info"><BsInfo /></Link>
                         </div>
                     </div>

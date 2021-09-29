@@ -1,5 +1,20 @@
 @use '../theme' as *;
 
+.MuiPaper-root {
+
+    &::-webkit-scrollbar {
+        background-color: $clr-scroll-bar-background;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
+    }
+       
+    &::-webkit-scrollbar-thumb {
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
+        background-color: $clr-scroll-bar;
+        width: 20px;
+        border: 50%;
+    }
+}
+
 .pokemon {
     height: 100vh;
     overflow: auto;
@@ -17,12 +32,76 @@
     flex-direction: row;
     flex-wrap: wrap;
 
-    .name {
+    .form-control {
+        border-color: white;
+
+        .game-select {
+
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+
+    .pokemon-info {
         
+
+        .name {
+            text-transform: capitalize;
+        }
+
+        .height {
+
+
+            .height-span {
+                color: $clr-height;
+            }
+        }
+
+        .type {
+
+        }
+
+        .id {
+
+
+            .id-span {
+                color: $clr-id;
+            }
+        }
+
+        .weight {
+
+
+            .weight-span {
+                color: $clr-weight;
+            }
+        }
+
+        .is-default {
+
+
+            .default-checkbox {
+                color: white;
+            }
+        }
     }
 
     .abilities {
 
+
+        .ability {
+            text-transform: capitalize;
+        }
+
+        .hidden-span {
+            
+
+            .hidden-checkbox {
+                color: white;
+            }
+        }
     }
 
     .games {
