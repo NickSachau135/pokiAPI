@@ -87,7 +87,8 @@ const Abilities = () => {
       style: {
         maxHeight: ITEM_HEIGHT * 23 + ITEM_PADDING_TOP,
         width: 250,
-        background: "hsl(50, 90%, 50%)",
+        background: "none",
+        color: "hsl(0, 100%, 100%)"
       },
     },
   };
