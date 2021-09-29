@@ -190,7 +190,7 @@ body::before {
   display: flex;
   width: 100%;
   position: relative;
-  padding-left: 2rem;
+  padding-left: 15%;
 }
 .pokemon .pokedex .controlls-container .more-info {
   outline: none;
